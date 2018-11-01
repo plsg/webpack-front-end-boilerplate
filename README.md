@@ -29,8 +29,7 @@ ___
 
 # Environment Information
 ```
-aha-sparx-01.ahundredanswers.com
-192.168.50.61
+localhost:3000
 ```
 
 # webpack usage
