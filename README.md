@@ -16,7 +16,7 @@
 
 ___
 
-<a name="TOC"></a>   
+<a name="top"></a>   
 
 - [init](#init)
 - [dependencies](#dependencies)
@@ -264,7 +264,7 @@ module.exports = {
 
 
 #   
-- [back to top](#TOC)
+- [back to top](#top)
 
 
 
