@@ -16,6 +16,8 @@
 
 ___
 
+<a name="TOC"></a>   
+
 - [init](#init)
 - [dependencies](#dependencies)
 - [mkdir](#directories)
@@ -46,7 +48,7 @@ localhost:3000
 
 ___  
   
-## time_to_learn   
+### time_to_learn   
 <details>
 <summary>
 (click to open)
@@ -71,7 +73,7 @@ ___
 
 ___  
 
-## create a `package.json` file  
+### create a `package.json` file  
 <details>
 <summary>(click to open)</summary>
 
@@ -96,8 +98,10 @@ ___
 </details>  
 
 <a name="dependencies"></a>   
+
 #
-## dependencies   
+
+### dependencies   
 <details>
 <summary>(click to open)</summary>
 
@@ -117,9 +121,10 @@ ___
 </details>
 
 <a name="directories"></a>   
+
 #
 
-## Create source directories and files for __HTML__, __CSS__, and __JS__:  
+### Create source directories and files for __HTML__, __CSS__, and __JS__:  
 <details>
 <summary>(click to open)</summary>
 
@@ -155,7 +160,7 @@ mkdir -p src/js/inc src/css/inc src/html/inc && touch src/js/app.js src/css/styl
 
 # 
 
-## sample `webpack.config.js`    
+### sample `webpack.config.js`    
 <details>
 <summary>(click to open)</summary>  
 
@@ -230,9 +235,10 @@ module.exports = {
 </details>
 
 <a name="run"></a>   
+
 #
 
-## finding a script and running a script
+### finding a script and running a script
 
 <details>
 <summary>(click to open)</summary>  
@@ -258,6 +264,8 @@ module.exports = {
 
 
 #   
+- [back to top](#TOC)
+
 
 
 
