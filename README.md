@@ -43,8 +43,39 @@ localhost:3000
 
 
 ## instructions:  
-1. create a `package.json` file  
-    - If no file exists:
+
+___  
+  
+## time_to_learn   
+<details>
+<summary>
+(click to open)
+</summary>
+
+1. create project
+    ```   
+    npm init -y
+    mkdir src
+    touch src/index.js
+    mkdir src/components
+    touch src/components/App.js 
+    npm i react react-dom   
+    ```   
+2. webpack and babel
+    ```
+    npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin
+    npm i -D babel-core babel-loader@7 babel-preset-env babel-preset-react 
+    ```   
+
+</details>   
+
+___  
+
+## create a `package.json` file  
+<details>
+<summary>(click to open)</summary>
+
+    - If no file exists:  
         ```
         npm init
         ```
@@ -62,138 +93,172 @@ localhost:3000
             npm install --save-dev webpack webpack-cli
             ```  
 
-    <a name="dependencies"></a>   
-    #
-1. dependencies   
-    1. install development dependencies   
-        ```
-        npm install --save-dev  html-webpack-plugin html-loader file-loader  style-loader css-loader postcss-loader autoprefixer  sass-loader node-sass  optimize-css-assets-webpack-plugin mini-css-extract-plugin  babel-loader @babel/core @babel/preset-env  uglifyjs-webpack-plugin  webpack webpack-cli
-        ```   
-        >- Read documentation for details on loading and extracting css    
-        >   https://webpack.js.org/loaders/sass-loader   
-        > - solution for `url(...)` path using a variable is mentioned at the following url:   
-        >   https://webpack.js.org/loaders/sass-loader/#problems-with-url-    
+</details>  
 
-    2. install production dependencies   
-        ```
-        npm install --save bootstrap jquery
-        ```  
+<a name="dependencies"></a>   
+#
+## dependencies   
+<details>
+<summary>(click to open)</summary>
 
-    <a name="directories"></a>   
-    #
-1. Create source directories and files for __HTML__, __CSS__, and __JS__:  
+1. install development dependencies   
     ```
-    mkdir -p src/js/inc src/css/inc src/html/inc && touch src/js/app.js src/css/styles.scss src/index.html .babelrc webpack.config.js 
+    npm install --save-dev  html-webpack-plugin html-loader file-loader  style-loader css-loader postcss-loader autoprefixer  sass-loader node-sass  optimize-css-assets-webpack-plugin mini-css-extract-plugin  babel-loader @babel/core @babel/preset-env  uglifyjs-webpack-plugin  webpack webpack-cli
+    ```   
+    >- Read documentation for details on loading and extracting css    
+    >   https://webpack.js.org/loaders/sass-loader   
+    > - solution for `url(...)` path using a variable is mentioned at the following url:   
+    >   https://webpack.js.org/loaders/sass-loader/#problems-with-url-    
+
+2. install production dependencies   
     ```
-    - first lines in `app.js`   
-        ```
-        import '../css/styles.scss'
-        import '../img/logo.png'
+    npm install --save bootstrap jquery
+    ```  
+</details>
 
-        var $ = require('jquery');
-        ``` 
+<a name="directories"></a>   
+#
 
-    - first lines in `styles.scss`  
-        ```
-        @import "../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
-        ``` 
+## Create source directories and files for __HTML__, __CSS__, and __JS__:  
+<details>
+<summary>(click to open)</summary>
 
-    - use `HTML partials`   
-        ```
-        ${require('./inc/component.html')}
-        ```
+```   
+mkdir -p src/js/inc src/css/inc src/html/inc && touch src/js/app.js src/css/styles.scss src/index.html .babelrc webpack.config.js 
+```
+- first lines in `app.js`   
+    ```
+    import '../css/styles.scss'
+    import '../img/logo.png'
 
-    - place this inside the `.babelrc` file (file-relative configuration)  
-        ```
-        {
-            "presets": ["@babel/preset-env"]
-        }
-        ```  
+    var $ = require('jquery');
+    ``` 
 
-    - sample `webpack.config.js`    
-        ```
-        // ./node_modules/.bin/webpack - v
-        // 4.22 .0
+- first lines in `styles.scss`  
+    ```
+    @import "../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
+    ``` 
 
-        const path = require('path');
-        const HtmlWebPackPlugin = require("html-webpack-plugin");
-        const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+- use `HTML partials`   
+    ```
+    ${require('./inc/component.html')}
+    ```
 
-        module.exports = {
-            entry: './src/js/app.js',
-            output: {
-                filename: 'bundle.js',
-                path: path.resolve(__dirname, 'dist')
+- place this inside the `.babelrc` file (file-relative configuration)  
+    ```
+    {
+        "presets": ["@babel/preset-env"]
+    }
+    ```  
+
+</details>
+
+# 
+
+## sample `webpack.config.js`    
+<details>
+<summary>(click to open)</summary>  
+
+```
+// ./node_modules/.bin/webpack -v
+// 4.22 .0
+``` 
+``` 
+const path = require('path');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+    entry: './src/js/app.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules: [{
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                }
             },
-            module: {
-                rules: [{
-                        test: /\.js$/,
-                        exclude: /node_modules/,
-                        use: {
-                            loader: 'babel-loader',
-                        }
-                    },
-                    {
-                        test: /\.html$/,
-                        use: [{
-                            loader: "html-loader",
-                            options: {
-                                minimize: false,
-                                interpolate: true
-                            }
-                        }]
-                    },
-                    {
-                        // test: /\.css$/,
-                        test: /\.scss$/,
-                        use: [
-                            // "style-loader",
-                            MiniCssExtractPlugin.loader,
-                            "css-loader",
-                            "sass-loader"
-                        ]
-                    },
-                    {
-                        test: /\.(png|jpg|gif)$/,
-                        use: [{
-                            loader: 'file-loader',
-                            options: {
-                                name: '[name].[ext]',
-                                outputPath: 'images/'
-                            }
-                        }]
+            {
+                test: /\.html$/,
+                use: [{
+                    loader: "html-loader",
+                    options: {
+                        minimize: false,
+                        interpolate: true
                     }
+                }]
+            },
+            {
+                // test: /\.css$/,
+                test: /\.scss$/,
+                use: [
+                    // "style-loader",
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "sass-loader"
                 ]
             },
-            plugins: [
-                new MiniCssExtractPlugin({
-                    filename: '[name].css',
-                    // chunkFilename: "[id].css"
-                }),
-                new HtmlWebPackPlugin({
-                    template: "./src/html/index.html",
-                    filename: "index.html"
-                })
-            ]
-        }
-        ```  
-    <a name="run"></a>   
-    #
-1. finding a script and running a script
-    - see the list of scripts
-        ```
-        npm run
-        ```
-    - run a script
-        ```
-        npm run develop
-        ```
-    - or select from list using `ntl` (installed globally)    
-        https://www.npmjs.com/package/ntl  
-        ```
-        npm install -g ntl
-        ```
-        ```
-        ntl
-        ```
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/'
+                    }
+                }]
+            }
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            // chunkFilename: "[id].css"
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/html/index.html",
+            filename: "index.html"
+        })
+    ]
+}
+```  
+
+</details>
+
+<a name="run"></a>   
+#
+
+## finding a script and running a script
+
+<details>
+<summary>(click to open)</summary>  
+   
+- see the list of scripts
+    ```
+    npm run
+    ```
+- run a script
+    ```
+    npm run develop
+    ```
+- or select from list using `ntl` (installed globally)    
+    https://www.npmjs.com/package/ntl  
+    ```
+    npm install -g ntl
+    ```
+    ```
+    ntl
+    ```  
+
+</details>
+
+
+#   
+
+
+
 
