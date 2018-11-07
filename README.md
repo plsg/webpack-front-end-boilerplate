@@ -75,23 +75,23 @@ ___
 <details>
 <summary>(click to open)</summary>
 
-    - If no file exists:  
+- If no file exists:  
+    ```
+    npm init
+    ```
+- If file already exists:
+    ```
+    npm install
+    ```
+- Alternatively 
+    - create a package.json with default settings  
         ```
-        npm init
+        npm init -y
         ```
-    - If file already exists:
+    - install webpack 
         ```
-        npm install
-        ```
-    - Alternatively 
-        - create a package.json with default settings  
-            ```
-            npm init -y
-            ```
-        - install webpack 
-            ```
-            npm install --save-dev webpack webpack-cli
-            ```  
+        npm install --save-dev webpack webpack-cli
+        ```  
 
 </details>  
 
