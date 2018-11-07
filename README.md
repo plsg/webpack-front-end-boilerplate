@@ -1,5 +1,25 @@
 > __The Rockstar Front-end Boilerplate__  
-> Thunder of the Gods fueled with __npm__ 
+> " Thunder of the Gods fueled with __npm__ "
+
+___
+
+<a name="top"></a>   
+
+- [init](#init)
+- [dependencies](#dependencies)
+- [mkdir](#directories)
+- [run scripts](#run)
+
+
+<a name="init"></a>   
+___    
+
+<h1> Environment Information </h1>
+
+<details>
+<summary>
+(click to open)
+</summary>
 
 ```
 /src/
@@ -14,30 +34,15 @@
 ```
 > NOTE: `/src/js/app.js` is the entry point   
 
-___
+</details>
 
-<a name="top"></a>   
-
-- [init](#init)
-- [dependencies](#dependencies)
-- [mkdir](#directories)
-- [run scripts](#run)
-
-
-
-
-<a name="init"></a>   
-___    
-
-# Environment Information
 ```
 localhost:3000
 ```
-
 # webpack usage
 
 ## resources:  
-- > BEGINNER GUIDES, initial settings and config for Babel, React, SCSS==CSS, HTML, and more ...    
+> BEGINNER GUIDES, initial settings and config for Babel, React, SCSS==CSS, HTML, and more ...    
     https://medium.com/javascript-in-plain-english/its-time-for-you-to-learn-webpack-45d2b08ae754    
     https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1  
     ~~https://www.valentinog.com/blog/webpack-tutorial/#webpack_4_extracting_CSS_to_a_file~~  
