@@ -18,7 +18,7 @@ ___
 
 <details>
 <summary>
-(click to open)
+file structure sample (click to open)
 </summary>
 
 ```
