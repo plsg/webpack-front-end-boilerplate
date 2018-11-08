@@ -53,8 +53,8 @@ localhost:3000
 
 ___  
   
-### time_to_learn   
-<details>
+### __Webpack + REACT boilerplate__   
+<!-- <details> -->
 <summary>
 (click to open)
 </summary>
@@ -73,6 +73,54 @@ ___
     npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin
     npm i -D babel-core babel-loader@7 babel-preset-env babel-preset-react 
     ```   
+3. create `webpack.config.js`
+    ```
+    touch webpack.config.js
+    ```
+    > ```
+    > const path = require('path')
+    > const HTMLWebpackPlugin = require('html-webpack-plugin')
+    >
+    > module.exports = {
+    >    entry: './src/index.js',
+    >    output: {
+    >        path: path.join(__dirname, '/dist'),
+    >        filename: 'bundle.js'
+    >    },
+    >    module: {
+    >        rules: [
+    >            {
+    >                test: /\.js$/,
+    >                exclude: /node_modules/,
+    >                use: {
+    >                    loader: 'babel-loader'
+    >                }
+    >            }
+    >        ]
+    >    },
+    >    plugins: [
+    >        new HTMLWebpackPlugin({
+    >            template: './src/index.html'
+    >        })
+    >    ]
+    >}
+    >```   
+4. create scripts in `package.json`  
+    >```
+    >"scripts": {
+    >    "start": "webpack-dev-server --mode development --open --hot",
+    >    "build": "webpack --mode production"
+    >}
+    >```
+5. create `.babelrc`
+    ```
+    touch .babelrc
+    ```
+    >```
+    > {
+    >    "presets": ["env", "react"]
+    >}
+    >```
 
 </details>   
 
