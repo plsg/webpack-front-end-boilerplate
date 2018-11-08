@@ -20,8 +20,10 @@
   },
   "homepage": "https://github.com/plsg/webpack-front-end-boilerplate#readme",
   "dependencies": {
+    "css-loader": "^1.0.1",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
