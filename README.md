@@ -65,18 +65,20 @@ ___
     mkdir src
     touch src/index.js
     mkdir src/components
+    touch src/index.html 
+    touch src/components/index.js 
     touch src/components/App.js 
     npm i react react-dom   
-    ```   
+    ```    
 2. webpack and babel
     ```
     npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin
     npm i -D babel-core babel-loader@7 babel-preset-env babel-preset-react 
-    ```   
+    ```     
 3. create `webpack.config.js`
     ```
     touch webpack.config.js
-    ```
+    ```   
     > ```
     > const path = require('path')
     > const HTMLWebpackPlugin = require('html-webpack-plugin')
@@ -111,16 +113,47 @@ ___
     >    "start": "webpack-dev-server --mode development --open --hot",
     >    "build": "webpack --mode production"
     >}
-    >```
-5. create `.babelrc`
+    >```   
+5. create `.babelrc`  
     ```
-    touch .babelrc
-    ```
+    touch .babelrc 
+    ```  
     >```
     > {
     >    "presets": ["env", "react"]
     >}
+    >```   
+6. update __index.js__  
     >```
+    >import React from 'react'
+    >import ReactDOM from 'react-dom'
+    >import { App } from './components/App'
+    >ReactDOM.render(<App />, document.getElementById('root'))
+    >```   
+7. update __App.js__
+    >```
+    >import React, { Component } from 'react'
+    >export class App extends Component {
+    >    render() {
+    >        return <p>Hi, I've been packed, and transpiled</p>
+    >    }
+    >}
+    >```   
+8. update __index.html__
+    >```
+    >    <!DOCTYPE html>
+    >    <html lang="en"> 
+    >    <head>  
+    >       <meta charset="UTF-8">  
+    >       <meta name="viewport" content="width=device-width, initial-  scale=1.0">  
+    >       <meta http-equiv="X-UA-Compatible" content="ie=edge">     
+    >       <title>Webpack React</title>
+    >    </head> 
+    >    <body>  
+    >       <div id="root"></div>
+    >    </body> 
+    >    </html>
+    >```   
 
 </details>   
 
