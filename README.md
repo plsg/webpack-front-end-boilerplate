@@ -66,6 +66,7 @@ ___
     touch src/index.js
     mkdir src/components
     touch src/index.html 
+    touch src/styles.css
     touch src/components/index.js 
     touch src/components/App.js 
     npm i react react-dom   
@@ -154,6 +155,18 @@ ___
     >    </body> 
     >    </html>
     >```   
+9. import __CSS styles__ into React components
+    ```
+    npm i style-loader css-loader
+    ```
+    - webpack.config.js
+    >```
+    >{
+    >    test: /\.css$/,
+    >    use: ['style-loader', 'css-loader']
+    >}
+    >```
+
 
 </details>   
 
